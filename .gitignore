@@ -1,0 +1,62 @@
+# =====================
+# DEPENDENCIAS
+# =====================
+vendor/
+node_modules/
+
+# =====================
+# DRUPAL CORE
+# (no se versiona, se instala con Composer)
+# =====================
+web/core/
+web/modules/contrib/
+web/themes/contrib/
+web/profiles/contrib/
+web/libraries/
+
+# =====================
+# ARCHIVOS GENERADOS / UPLOADS
+# =====================
+web/sites/*/files/
+web/sites/*/private/
+web/sites/*/translations/
+
+# =====================
+# CONFIGURACIÓN LOCAL
+# (cada entorno tiene la suya)
+# =====================
+web/sites/*/settings.local.php
+web/sites/*/services.local.yml
+web/sites/*/settings.php  # ojo: solo si usas settings.local.php para todo
+
+# =====================
+# CACHÉ Y TEMPORALES
+# =====================
+web/sites/*/error_log
+/drush/sites/
+
+# =====================
+# COMPOSER
+# =====================
+# composer.lock SÍ se versiona (omitir esta línea)
+# /composer.lock  ← NO ignorar esto
+
+# =====================
+# IDE Y SISTEMA
+# =====================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+nbproject/
+
+# =====================
+# LOGS Y BACKUPS
+# =====================
+*.log
+*.sql
+*.sql.gz
+*.dump
+/backup/
