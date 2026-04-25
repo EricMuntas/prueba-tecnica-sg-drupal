@@ -1,0 +1,7 @@
+name: Newsletter
+description: 'Módulo de alta al Newsletter con gestión desde el administrador y exportación CSV/Excel.'
+type: module
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:views

@@ -1,0 +1,23 @@
+name: Prueba Técnica
+type: theme
+description: 'Prueba Técnica'
+package: Custom
+core_version_requirement: ^10 || ^11
+base theme: stable9
+
+libraries:
+  - prueba_tecnica/global-styles
+
+# Anular estilos del core que afectan al menú
+libraries-override:
+  stable9/base:
+    css:
+      component:
+        css/components/menu.css: false
+
+regions:
+  header: Header
+  primary_menu: 'Primary Menu'
+  content: Content
+  sidebar_first: 'Sidebar First'
+  footer: Footer

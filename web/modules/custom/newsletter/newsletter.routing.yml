@@ -1,0 +1,49 @@
+newsletter.subscribe:
+  path: '/newsletter/suscribirse'
+  defaults:
+    _form: '\Drupal\newsletter\Form\NewsletterSubscribeForm'
+    _title: 'Suscribirse al Newsletter'
+  requirements:
+    _access: 'TRUE'
+
+newsletter.admin_list:
+  path: '/admin/newsletter/suscriptores'
+  defaults:
+    _controller: '\Drupal\newsletter\Controller\NewsletterAdminController::listSubscribers'
+    _title: 'Suscriptores al Newsletter'
+  requirements:
+    _permission: 'administer newsletter'
+
+newsletter.admin_edit:
+  path: '/admin/newsletter/suscriptores/{id}/editar'
+  defaults:
+    _form: '\Drupal\newsletter\Form\NewsletterEditForm'
+    _title: 'Editar suscriptor'
+  requirements:
+    _permission: 'administer newsletter'
+    id: '\d+'
+
+newsletter.admin_delete:
+  path: '/admin/newsletter/suscriptores/{id}/eliminar'
+  defaults:
+    _form: '\Drupal\newsletter\Form\NewsletterDeleteForm'
+    _title: 'Eliminar suscriptor'
+  requirements:
+    _permission: 'administer newsletter'
+    id: '\d+'
+
+newsletter.export_csv:
+  path: '/admin/newsletter/exportar/csv'
+  defaults:
+    _controller: '\Drupal\newsletter\Controller\NewsletterAdminController::exportCsv'
+    _title: 'Exportar CSV'
+  requirements:
+    _permission: 'administer newsletter'
+
+newsletter.export_excel:
+  path: '/admin/newsletter/exportar/excel'
+  defaults:
+    _controller: '\Drupal\newsletter\Controller\NewsletterAdminController::exportExcel'
+    _title: 'Exportar Excel'
+  requirements:
+    _permission: 'administer newsletter'

@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Módulo Newsletter: alta pública, gestión de suscriptores y exportación.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function newsletter_help($route_name, RouteMatchInterface $route_match) {
+  if ($route_name === 'help.page.newsletter') {
+    return '<p>' . t('Módulo de suscripción al Newsletter. Permite a los usuarios darse de alta mediante un formulario público. Los administradores pueden gestionar los suscriptores y exportar el listado en CSV o Excel desde <a href=":url">Contenido → Newsletter</a>.', [':url' => \Drupal\Core\Url::fromRoute('newsletter.admin_list')->toString()]) . '</p>';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function newsletter_theme() {
+  return [
+    'newsletter_subscribe_block' => [
+      'variables' => ['form' => NULL],
+    ],
+  ];
+}

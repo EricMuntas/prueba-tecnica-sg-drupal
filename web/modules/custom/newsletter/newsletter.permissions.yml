@@ -1,0 +1,4 @@
+administer newsletter:
+  title: 'Administrar Newsletter'
+  description: 'Ver, editar y eliminar suscriptores al Newsletter. Exportar listados.'
+  restrict access: true

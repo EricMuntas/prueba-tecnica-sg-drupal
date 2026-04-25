@@ -1,0 +1,12 @@
+newsletter.admin_list:
+  title: 'Newsletter'
+  description: 'Gestión de suscriptores al Newsletter.'
+  route_name: newsletter.admin_list
+  parent: system.admin_content
+  weight: 10
+
+newsletter.subscribe_link:
+  title: 'Suscribirse al Newsletter'
+  route_name: newsletter.subscribe
+  menu_name: main
+  weight: 99

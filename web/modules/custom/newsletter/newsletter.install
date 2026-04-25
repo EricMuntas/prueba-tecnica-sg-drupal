@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Newsletter module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function newsletter_schema() {
+  $schema['newsletter_subscribers'] = [
+    'description' => 'Tabla de suscriptores al newsletter.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'ID único del suscriptor.',
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Email del suscriptor.',
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'default' => '',
+        'description' => 'Nombre del suscriptor.',
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp de creación.',
+      ],
+      'status' => [
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 1,
+        'description' => '1 = activo, 0 = inactivo.',
+      ],
+    ],
+    'primary key' => ['id'],
+    'unique keys' => [
+      'email' => ['email'],
+    ],
+    'indexes' => [
+      'created' => ['created'],
+      'status' => ['status'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function newsletter_uninstall() {
+  \Drupal::database()->schema()->dropTable('newsletter_subscribers');
+}

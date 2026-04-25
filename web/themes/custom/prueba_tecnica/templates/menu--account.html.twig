@@ -1,0 +1,33 @@
+{#
+  Plantilla personalizada del menú principal
+#}
+{% import _self as menus %}
+
+{% macro menu_links(items, attributes, menu_level) %}
+	{% import _self as menus %}
+	{% if items %}
+		{% if menu_level == 0 %}
+			<ul class="user_nav__list user_nav__list--level-{{ menu_level }}">
+			{% else %}
+				<ul class="user_nav__list user_nav__list--level-{{ menu_level }} user_nav__dropdown">
+				{% endif %}
+				{% for item in items %}
+					<li class="user_nav__item{% if item.is_expanded %} user_nav__item--expanded{% endif %}{% if item.in_active_trail %} user_nav__item--active-trail{% endif %}">
+						{{ link(item.title, item.url, {
+          'class': ['user_nav__link', item.in_active_trail ? 'user_nav__link--active']
+        }) }}
+						{% if item.below %}
+							{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endmacro %}
+
+	<nav role="navigation" aria-labelledby="{{ heading_id }}" id="{{ attributes.id }}" class="nav user_nav--main">
+		{{ title_prefix }}
+		<h2 id="{{ heading_id }}" class="visually-hidden">{{ heading }}</h2>
+		{{ title_suffix }}
+		{{ menus.menu_links(items, attributes, 0) }}
+	</nav>

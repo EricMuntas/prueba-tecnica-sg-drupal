@@ -1,0 +1,10 @@
+global-styles:
+  version: 1.0
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    js/script.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal   # <-- añade esto, necesario para comportamientos JS de Drupal

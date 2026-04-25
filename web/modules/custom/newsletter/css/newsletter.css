@@ -1,0 +1,26 @@
+/**
+ * Newsletter module styles.
+ */
+
+.newsletter-subscribe-form {
+  max-width: 480px;
+  margin: 2em auto;
+  padding: 2em;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.newsletter-subscribe-form .form-item {
+  margin-bottom: 1.2em;
+}
+
+.newsletter-subscribe-form .form-submit {
+  width: 100%;
+  padding: 0.8em;
+  font-size: 1.1em;
+}
+
+.newsletter-export-buttons {
+  margin-bottom: 1em;
+}

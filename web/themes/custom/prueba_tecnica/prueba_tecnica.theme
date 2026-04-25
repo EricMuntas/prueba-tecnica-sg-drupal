@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function prueba_tecnica_preprocess_page(&$variables) {
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function prueba_tecnica_preprocess_node(&$variables) {
+  // Lógica personalizada por nodo
+}
