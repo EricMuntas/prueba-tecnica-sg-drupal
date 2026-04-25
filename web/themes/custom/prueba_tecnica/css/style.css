@@ -169,19 +169,131 @@ p {
 
 }
 
+.views-exposed-form .form-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.views-exposed-form .form-item label {
+    flex: 0 0 100px;
+    /* Ancho fijo para todos los labels */
+    text-align: left;
+    /* O right, como prefieras */
+}
+
+.views-exposed-form .form-item input,
+.views-exposed-form .form-item select {
+    flex: 1;
+    /* El input tomará todo el espacio restante disponible */
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .form-text,
 .form-select {
     padding: 1px 5px 1px 5px;
     font-size: larger;
     border-radius: 50px;
+    border: 1px solid #16213e;
+    /* Añadimos borde para que se vean consistentes */
 }
 
 /*unformatted list*/
 .views-row {
-    background-color: #16213e67;
-    margin-bottom: 5px;
+    background-color: #16213e24;
+    margin-bottom: 15px;
+    /* Un poco más de margen entre items */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 8px;
 }
 
+/* Estilo para el Título (Asegúrate de que la clase sea correcta, a veces es views-field-title) */
+.views-field-field-titulo,
+.views-field-field-nombre-producto {
+    font-weight: bold;
+    color: #1a1a2e;
+}
+
+/* Estilo para la Fecha */
+.views-field-field-fecha {
+    font-size: 14px;
+    color: #16213e;
+    /* Un color rojo/rosado para destacar */
+    font-style: italic;
+}
+
+/* Estilo para la Descripción/Contenido */
+.views-field-field-contenido,
+.views-field-field-descripcion {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* .is-destacado .views-field-field-titulo::before {
+    content: "⭐ "; 
+    font-size: 1.2rem;
+} */
+
+/* Opcional: Dale a toda la tarjeta de la noticia destacada un toque especial para que resalte más */
+.is-destacado {
+    border: 2px solid #e94560;
+    /* Un borde con tu color de acento */
+    box-shadow: 0px 4px 15px rgba(233, 69, 96, 0.2);
+    /* Un ligero resplandor */
+}
+
+
+.views-field-field-tarifa {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+/* paginador /noticias /productos */
+.view_paginator__nav {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+    list-style: none;
+}
+
+.view_paginator__nav ul {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+    list-style: none;
+}
+
+.noticia {
+
+    border: 2px solid #16213e;
+    border-radius: 50px;
+    background: #16213e24;
+    width: 100%;
+}
+
+/* .paginatior__arrow {
+    font-size: larger;
+    border-radius: 100%;
+
+} */
 
 /* Tablet (max 1024px) */
 @media (max-width: 1024px) {

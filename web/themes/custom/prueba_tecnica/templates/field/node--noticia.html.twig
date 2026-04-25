@@ -59,29 +59,34 @@
  *
  */
 #}
-<article{{ attributes }}>
+<article{{ attributes.addClass('noticia') }}>
 
-  {{ title_prefix }}
-  {% if label and view_mode != "full" %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
-  <h1>i am a article</h1>
+	{{ title_prefix }}
+	{% if label and view_mode != "full" %}
+		<h2{{title_attributes}}>
+			<a href="{{ url }}" rel="bookmark">{{ label }}</a>
+		</h2>
+	{% endif %}
+	{{ title_suffix }}
+	{% if node.field_destacado.value %}
+		<h1 class="noticia-destacada">⭐ Destacado</h1>
+	{% endif %}
 
-  {% if display_submitted %}
-    <footer>
-      {{ author_picture }}
-      <div{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
+	{% if display_submitted %}
+		<footer>
+			{{ author_picture }}
+			<div{{author_attributes}}>
+				{% trans %}Submitted by
+				{{ author_name }}
+				on
+				{{ date }}{% endtrans %}
+				{{ metadata }}
+			</div>
+		</footer>
+	{% endif %}
 
-  <div{{ content_attributes }}>
-    {{ content }}
-  </div>
+	<div{{content_attributes}}>
+		{{ content }}
+	</div>
 
 </article>
