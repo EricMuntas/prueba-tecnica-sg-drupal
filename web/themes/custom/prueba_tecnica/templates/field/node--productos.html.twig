@@ -75,42 +75,38 @@
 	{% endif %}
 	{{ title_suffix }}
 
-	{% if display_submitted %}
-		<footer>
-			{{ author_picture }}
-			<div{{author_attributes}}>
-				{% trans %}Submitted by
-				{{ author_name }}
-				on
-				{{ date }}{% endtrans %}
-				{{ metadata }}
-			</div>
-		</footer>
-	{% endif %}
+	{# {% if display_submitted %}
+										<footer>
+											{{ author_picture }}
+											<div{{author_attributes}}>
+												{% trans %}Submitted by
+												{{ author_name }}
+												on
+												{{ date }}{% endtrans %}
+												{{ metadata }}
+											</div>
+										</footer>
+									{% endif %} #}
 
 	<div{{content_attributes.addClass('node-content-wrapper')}}>
-		{% if node.field_destacado.value %}
-			<div class="destacado-badge">⭐ Destacado</div>
-		{% endif %}
 
 		<h1>
-			{{ node.field_titulo.value }}
+			{{ node.field_nombre_producto.value }}
 		</h1>
 
 		<div class="content-node-image">
-			{% for key, item in content.field_ficheros_relacionados %}
+			{% for key, item in content.field_fotografias %}
 				{% if key|first != '#' %}
 					{{ item }}
 				{% endif %}
 			{% endfor %}
 		</div>
 
-		<h3 class="content-node-subtitulo">
-			{{ node.field_subtitulo.value }}
-		</h3>
-
 		<div class="content-node-texto">
-			{{ node.field_contenido.value|raw }}
+			{{ node.field_descripcion.value|raw }}
+		</div>
+		<div class="content-node-price">
+			<p>{{ node.field_tarifa.value }}€</p>
 		</div>
 
 		<div class="content-node-categorias">
@@ -120,7 +116,6 @@
 				{% endif %}
 			{% endfor %}
 		</div>
-
 	</div>
 
 </article>

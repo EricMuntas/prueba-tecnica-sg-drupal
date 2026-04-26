@@ -126,7 +126,7 @@ p {
 }
 
 
-/*main search bar*/
+/*main search bar - buscador global*/
 .form-search {
     padding: 5px 10px 5px 10px;
     width: 400px;
@@ -141,26 +141,53 @@ p {
     background: #1a1a2e;
     color: white;
     height: 50px;
+    width: 100%;
+    cursor: pointer;
 }
 
 #search-block-form {
-
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
+#search-form {
+    display: flex;
+    align-items: flex-end;
+    /* Alinea la etiqueta con el input y el botón */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#search-form .form-item {
+    display: flex;
+    flex-direction: column;
+}
+
+#search-form label {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.search-advanced {
+    display: none !important;
+}
+
+.search-help-link {
+    display: none !important;
+}
 
 /*other forms*/
-.views-exposed-form {
+.views-exposed-form,
+.user-login-form {
 
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 20px 100px 20px 100px;
     border: 2px solid #16213e;
-    /* background-color: #16213e; */
+    background-color: #16213e24;
     color: #16213e;
     border-radius: 50px;
     width: 500px;
@@ -169,14 +196,16 @@ p {
 
 }
 
-.views-exposed-form .form-item {
+.views-exposed-form .form-item,
+.user-login-form .form-item {
     display: flex;
     align-items: center;
     gap: 15px;
     width: 100%;
 }
 
-.views-exposed-form .form-item label {
+.views-exposed-form .form-item label,
+.user-login-form .form-item label {
     flex: 0 0 100px;
     /* Ancho fijo para todos los labels */
     text-align: left;
@@ -184,9 +213,11 @@ p {
 }
 
 .views-exposed-form .form-item input,
-.views-exposed-form .form-item select {
+.views-exposed-form .form-item select,
+.user-login-form .form-item input {
     flex: 1;
-    /* El input tomará todo el espacio restante disponible */
+    min-width: 0;
+    /* El input tomará todo el espacio restante disponible y min-width 0 le permite encogerse ignorando el size="60" */
 }
 
 .form-wrapper {
@@ -196,7 +227,8 @@ p {
 }
 
 .form-text,
-.form-select {
+.form-select,
+.form-email {
     padding: 1px 5px 1px 5px;
     font-size: larger;
     border-radius: 50px;
@@ -281,13 +313,184 @@ p {
     list-style: none;
 }
 
-.noticia {
+.content-node,
+.producto {
+    border: 2px solid #16213e;
+    border-radius: 30px;
+    background: #16213e24;
+    width: 100%;
+    padding: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
 
+.destacado-badge {
+    align-self: flex-start;
+    background: #e94560;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos para los campos dentro del nodo para darles cohesión */
+.node-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.node-content-wrapper .field {
+    margin-bottom: 8px;
+}
+
+.node-content-wrapper .field__label {
+    font-weight: bold;
+    color: #1a1a2e;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.node-content-wrapper .field__item,
+.node-content-wrapper .field__items {
+    color: #3f3f52;
+    line-height: 1.5;
+}
+
+/* Títulos sin tanto margen */
+.node-content-wrapper h1 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 2.2rem;
+    color: #1a1a2e;
+}
+
+.node-content-wrapper .content-node-subtitulo {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #3f3f52;
+    font-weight: 500;
+}
+
+.node-content-wrapper .content-node-texto {
+    color: #3f3f52;
+    line-height: 1.6;
+}
+
+.content-node-price {
+    color: #29b905;
+    line-height: 1.6;
+    text-align: end;
+}
+
+/* Título de la noticia o producto */
+.content-node h2 a,
+.producto h2 a {
+    color: #1a1a2e;
+    text-decoration: none;
+    font-size: 1.8rem;
+}
+
+.content-node h2 a:hover,
+.producto h2 a:hover {
+    color: #e94560;
+}
+
+/* Footer de autor */
+.content-node footer,
+.producto footer {
+    font-size: 0.9rem;
+    color: #555;
+    background: #ffffff50;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.content-node-image {
+    display: flex;
+    flex-direction: row;
+    /* 👈 cambia esto */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* espacio entre imágenes */
+}
+
+.content-node-image img {
+    width: 200px;
+    /* o el tamaño que quieras */
+    height: auto;
+    border-radius: 15px;
+    user-select: none;
+}
+
+/*newsletter*/
+.newsletter-subscribe-form {
+    margin-top: 20px;
     border: 2px solid #16213e;
     border-radius: 50px;
     background: #16213e24;
-    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 750px;
 }
+
+.newsletter-subscribe-form div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter-subscribe-form div label {
+    flex: 0 0 100px;
+    text-align: left;
+}
+
+.newsletter-subscribe-form div input {
+    flex: 1;
+    /* El input tomará todo el espacio restante disponible */
+}
+
+/* Fix para el checkbox de política de privacidad */
+.newsletter-subscribe-form div.form-type-checkbox,
+.newsletter-subscribe-form div.js-form-type-checkbox,
+.newsletter-subscribe-form div.form-item-privacy {
+    justify-content: center;
+    gap: 10px;
+}
+
+.newsletter-subscribe-form div.form-type-checkbox label,
+.newsletter-subscribe-form div.js-form-type-checkbox label,
+.newsletter-subscribe-form div.form-item-privacy label {
+    flex: none;
+    width: auto;
+}
+
+.newsletter-subscribe-form div.form-type-checkbox input,
+.newsletter-subscribe-form div.js-form-type-checkbox input,
+.newsletter-subscribe-form div.form-item-privacy input {
+    flex: none;
+    width: auto;
+}
+
+
+
 
 /* .paginatior__arrow {
     font-size: larger;

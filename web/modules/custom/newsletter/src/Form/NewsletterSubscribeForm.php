@@ -49,7 +49,7 @@ class NewsletterSubscribeForm extends FormBase {
     $form['#attributes']['class'][] = 'newsletter-subscribe-form';
 
     $form['intro'] = [
-      '#markup' => '<p>' . $this->t('Suscríbete a nuestro Newsletter y recibe las últimas novedades en tu correo.') . '</p>',
+      '#markup' => '<p>' . $this->t('¡Suscríbete a nuestro Newsletter y recibe las últimas novedades en tu correo!') . '</p>',
     ];
 
     $form['name'] = [
